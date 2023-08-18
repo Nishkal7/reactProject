@@ -1,0 +1,1 @@
+Personal Project v1 - that uses React js, Redux and react router.
