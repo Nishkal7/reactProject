@@ -1,7 +1,21 @@
+import { Link } from "react-router-dom";
+
 const Entry = () => {
     return (
         <div>
-            <h1>entry Page....</h1>
+            <h1>HYPE</h1>
+            <>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/login">Login</Link>
+                        </li>
+                        <li>
+                            <Link to="/register">Register</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </>
         </div>
     );
 }
