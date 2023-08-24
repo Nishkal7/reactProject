@@ -13,9 +13,9 @@ const Layout = () => {
         <>
             <nav>
                 <ul>
-                    <li>
+                    {/* <li>
                         <Link to="/todo">Todo</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/" onClick={logout}>Logout</Link>
                     </li>

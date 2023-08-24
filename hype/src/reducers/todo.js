@@ -11,8 +11,8 @@ const todoSlice = createSlice({
             state.tasks.unshift(action.payload)
         },
         deleteTask: (state, action) => {
-            state.tasks = state.tasks.filter((task) => task !== action.payload)
-            state.recentlyDeletedTasks.unshift(action.payload)
+            state.tasks.splice(action.payload.index, 1);
+            state.recentlyDeletedTasks.unshift(action.payload.task)
         },
         clearHistory: (state) => {
             state.recentlyDeletedTasks = []
