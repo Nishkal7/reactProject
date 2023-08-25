@@ -1,30 +1,96 @@
-.formView {
+.todoView {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 30px;
-    padding: 30px;
 }
 
-.validate {
+.delete {
     height: 30px;
-    width: 170px;
-    margin: 30px;
-    background-color: aliceblue;
+    width: 100%;
+    margin: 20px;
+    background-color: #ddf1f9;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+.inputbox{
+    height: 30px;
+    width: 400px;
+    border-radius: 10px;
+    padding-right: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.create {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+    background-color: #ddf1f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+.todoInputView{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .taskList {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 500px;
     width: 50%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
+
+.tickView{
+    height: 20px;
+    width: 20px;
+}
+
+.taskCardInnerView{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    margin: 10px;
+    border-radius: 15px;
+}
+.one {
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+}
+
+.two {
+    flex: 10;
+}
+
+.three {
+    flex: 2;
+    display: flex;
+    padding-left: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
 
 .taskview{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }

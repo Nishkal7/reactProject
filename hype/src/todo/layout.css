@@ -1,0 +1,20 @@
+.todoTitle{
+    height: 80px;
+    /* width: 90%; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.todoTitleInnerView{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xxx-large;
+    font-weight: bolder;
+    flex-direction: row;
+}

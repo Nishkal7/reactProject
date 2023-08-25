@@ -1,29 +1,27 @@
 import React from 'react';
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import './layout.css'
 
 const Layout = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const logout = () => {
-        navigate("/", { replace: true })
+    // const logout = () => {
+    //     navigate("/", { replace: true })
+    // }
 
-    }
     return (
-        <>
-            <nav>
-                <ul>
-                    {/* <li>
-                        <Link to="/todo">Todo</Link>
-                    </li> */}
-                    <li>
-                        <Link to="/" onClick={logout}>Logout</Link>
-                    </li>
-                </ul>
-            </nav>
-
+        <div>
+            <div className='todoTitle'>
+                <div className='todoTitleInnerView'>
+                    <div className='title'>
+                       <div style={{color: 'white', paddingRight:'10px'}}>TODO</div>
+                       <div style={{color: 'skyblue'}}>LIST</div> 
+                        </div>
+                </div>
+            </div>
             <Outlet />
-        </>
+        </div>
     )
 };
 

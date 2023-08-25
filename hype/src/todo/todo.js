@@ -1,55 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './todo.css';
-import { useSelector, useDispatch } from "react-redux";
-import { addTask, deleteTask, clearHistory } from '../reducers/todo';
+import { useTodo } from './useTodo';
+import greenTick from "../assets/greenTick.png";
+import blackTick from "../assets/blackTick.png";
 
 const Todo = () => {
-
-    const [todoData, setTodoData] = useState("");
-
-
-    const changeHandler = (e) => {
-        setTodoData(e.target.value)
-    }
-
-    const dispatch = useDispatch();
-
-    const tasks = useSelector((state) => state.todo);
-
-    const addTodo = () => {
-        dispatch(addTask(todoData));
-    }
-
-    const deleteTodo = (task, ind) => {
-        dispatch(deleteTask({
-            task : task,
-            index: ind
-        }));
-    }
-
+    const { todoData, changeHandler, tasks, addTodo, deleteTodo, toggleTick } = useTodo();
     return (
-        <div className='formView'>
-            <div>
-                <input
-                    name='task'
-                    type='text'
-                    value={todoData}
-                    placeholder='TODO'
-                    onChange={changeHandler}
-                />
+        <div className='todoView'>
+            <div className='todoInputView'>
+                <div>
+                    <input
+                        name='task'
+                        type='text'
+                        value={todoData}
+                        placeholder='What do you want to do?'
+                        onChange={changeHandler}
+                        className='inputbox'
+                    />
+                </div>
+                <div>
+                    <button className='create' onClick={addTodo}>Add Todo</button>
+                </div>
             </div>
-            <div>
-                <button className='validate' onClick={addTodo}>Create Task</button>
-            </div>
-            <div className= {tasks.tasks.length > 5 ? 'taskList' : null}>
+            <div className='taskList' >
                 {tasks.tasks.map((task, index) => {
                     return (
                         <div className='taskview' key={index}>
-                            <div>
-                                <h1>{task}</h1>
-                            </div>
-                            <div>
-                                <button className='validate' onClick={() => deleteTodo(task,index)}>Delete Task</button>
+                            <div className='taskCardInnerView'>
+                                <div onClick={() => toggleTick(index)} className='one' >
+                                    <img alt='tick' className='tickView' src={task.taskCompleted ? greenTick : blackTick} />
+                                </div>
+                                <div onClick={() => toggleTick(index)} className='two'
+                                    style={{ textDecoration: task.taskCompleted && 'line-through' }}>
+                                    <h3>{task.taskName}</h3>
+                                </div>
+                                <div className='three'>
+                                    <button className='delete' onClick={() => deleteTodo(task, index)}>Remove</button>
+                                </div>
                             </div>
                         </div>
                     )

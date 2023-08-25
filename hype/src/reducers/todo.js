@@ -14,6 +14,14 @@ const todoSlice = createSlice({
             state.tasks.splice(action.payload.index, 1);
             state.recentlyDeletedTasks.unshift(action.payload.task)
         },
+        toggleTask: (state, action) => {
+            state.tasks = state.tasks.map((task, index) => {
+                if (index === action.payload.index) {
+                    return { ...task, taskCompleted: !task.taskCompleted }
+                }
+                return task;
+            })
+        },
         clearHistory: (state) => {
             state.recentlyDeletedTasks = []
         }
@@ -21,4 +29,4 @@ const todoSlice = createSlice({
 });
 
 export default todoSlice.reducer
-export const { addTask, deleteTask, clearHistory } = todoSlice.actions
+export const { addTask, deleteTask, toggleTask, clearHistory} = todoSlice.actions
