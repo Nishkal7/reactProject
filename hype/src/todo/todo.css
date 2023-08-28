@@ -36,6 +36,19 @@
     cursor: pointer;
 }
 
+.clearHistory{
+    display: flex;
+    height: 30px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddf1f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
 .todoInputView{
     display: flex;
     flex-direction: row;
@@ -85,7 +98,6 @@
     justify-content: center;
 }
 
-
 .taskview{
     display: flex;
     flex-direction: row;
@@ -93,4 +105,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.progressBarStyle{
+    display: flex;
+    width: 200px;
+    padding-right: 10px;
+    align-content: center;
+    justify-content: center;
 }

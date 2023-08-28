@@ -15,13 +15,14 @@ const Login = () => {
     }
 
     const validateUser = () => {
+        navigate('/todo');
         //dummy check
-        if (data.password === '1234567') {
-            navigate('/todo');
-        }
-        else {
-            alert('Invalid Password');
-        }
+        // if (data.password === '1234567') {
+        //     navigate('/todo');
+        // }
+        // else {
+        //     alert('Invalid Password');
+        // }
     }
     return (
         <div className='formView'>
