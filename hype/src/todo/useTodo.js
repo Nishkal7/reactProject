@@ -21,7 +21,7 @@ export const useTodo = () => {
   };
 
   const addTodo = () => {
-    if (todoData !== "") {
+    if (todoData !== "" && checkDuplicates()) {
       dispatch(
         addTask({
           taskName: todoData,
@@ -31,6 +31,11 @@ export const useTodo = () => {
       );
     }
     setTodoData("");
+  };
+
+  const checkDuplicates = () => {
+    if (tasks.tasks.find((task) => task.taskName === todoData)) return false;
+    else return true;
   };
 
   useEffect(() => {
@@ -58,22 +63,22 @@ export const useTodo = () => {
     taskNames.current = taskNames.current.filter(
       (name) => name !== task.taskName
     );
-      dispatch(
-        deleteTask({
-          task: {
-            taskName: task.taskName,
-            taskCompleted: true,
-          },
-          index: ind,
-        })
-      );
-      setDtasks(taskNames.current);
+    dispatch(
+      deleteTask({
+        task: {
+          taskName: task.taskName,
+          taskCompleted: true,
+        },
+        index: ind,
+      })
+    );
+    setDtasks(taskNames.current);
   };
 
   const deleteTodo = (task, ind) => {
     pushName(task.taskName);
     setTimeout(() => {
-     waitAndDelete(task, ind);
+      waitAndDelete(task, ind);
     }, 1000);
   };
 
@@ -91,6 +96,6 @@ export const useTodo = () => {
     clearTasks,
     tasksProgress,
     dTaks,
-    taskNames
+    taskNames,
   };
 };
