@@ -33,6 +33,10 @@ export const useTodo = () => {
     setTodoData("");
   };
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  },[tasks])
+
   const checkDuplicates = () => {
     if (tasks.tasks.find((task) => task.taskName === todoData)) return false;
     else return true;
@@ -79,7 +83,7 @@ export const useTodo = () => {
     pushName(task.taskName);
     setTimeout(() => {
       waitAndDelete(task, ind);
-    }, 1000);
+    }, 500);
   };
 
   const clearTasks = () => {

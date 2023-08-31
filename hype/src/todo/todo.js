@@ -76,13 +76,13 @@ const Todo = () => {
                     <div className="three">
                       <ProgressProvider valueStart={0} valueEnd={100}>
                         {(value) => (
-                          <div style={{padding:'10px'}}>
+                          <div style={{padding:'10px', width:'50%'}}>
                             <CircularProgressbar
                               styles={buildStyles({
                                 rotation: 0.25,
                                 strokeLinecap: "butt",
                                 textSize: "16px",
-                                pathTransitionDuration: 1,
+                                pathTransitionDuration: 0.5,
                                 textColor: "#f88",
                                 trailColor: "#d6d6d6",
                                 backgroundColor: "#3e98c7",
